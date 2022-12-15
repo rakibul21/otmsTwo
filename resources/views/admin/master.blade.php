@@ -21,11 +21,14 @@
     <link href="{{asset('/')}}admin/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Bootstrap Css -->
-    <link href="{{asset('/')}}admin/assets/css/bootstrap.min.css"  rel="stylesheet" type="text/css" />
+    <link href="{{asset('/')}}admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{asset('/')}}admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Summernote css -->
+    <link href="{{asset('/')}}admin/assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css" />
+
     <!-- App Css-->
-    <link href="{{asset('/')}}admin/assets/css/app.min.css"  rel="stylesheet" type="text/css" />
+    <link href="{{asset('/')}}admin/assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -349,7 +352,7 @@
                             </a>
                             <a href="#" class="text-reset notification-item">
                                 <div class="media">
-                                    <img src="{{asset('/')}}admin/assets/images/users/avatar-3.jpg"
+                                    <img src="{{asset('/')}}admin/assets/images/users/ppp.jpg"
                                          class="mr-3 rounded-circle avatar-xs" alt="user-pic">
                                     <div class="media-body">
                                         <h6 class="mt-0 mb-1">James Lemire</h6>
@@ -402,7 +405,7 @@
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="{{asset('/')}}admin/assets/images/users/avatar-1.jpg"
+                        <img class="rounded-circle header-profile-user" src="{{asset('/')}}admin/assets/images/users/ppp.jpg"
                              alt="Header Avatar">
                         <span class="d-none d-xl-inline-block ml-1">Rakibul Hasan</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -414,11 +417,12 @@
                         <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="bx bx-wrench font-size-16 align-middle mr-1"></i> Settings</a>
                         <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle mr-1"></i> Lock screen</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
+                        <a class="dropdown-item text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
+                            <i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout
+                        </a>
                         <form action="{{route('logout')}}" method="POST" id="logoutForm">
                             @csrf
                         </form>
-
                     </div>
                 </div>
 
@@ -443,9 +447,20 @@
 
                     <li>
                         <a href="javascript: void(0);" class="waves-effect">
-                            <i class="bx bx-home-circle"></i><span class="badge badge-pill badge-info float-right">03</span>
+                            <i class="bx bx-home-circle"></i>
                             <span>Dashboard</span>
                         </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="bx bx-layout"></i>
+                            <span>Category Module</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="{{route('category.add')}}">Add Category</a></li>
+                            <li><a href="{{route('category.manage')}}">Manage Category</a></li>
+                        </ul>
                     </li>
 
                     <li>
@@ -459,13 +474,15 @@
                         </ul>
                     </li>
 
+
+
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="bx bx-store"></i>
                             <span>Course Module</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="ecommerce-products.html">Manage Module</a></li>
+                            <li><a href="{{route('admin.manage-course')}}">Manage Course</a></li>
                         </ul>
                     </li>
 
@@ -485,7 +502,7 @@
                             <span>Enroll Module</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="email-inbox.html">Manage Enroll </a></li>
+                            <li><a href="{{route('admin.manage-enroll')}}">Manage Enroll</a></li>
                         </ul>
                     </li>
 
@@ -496,7 +513,7 @@
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
                             <li><a href="invoices-list.html">Add User</a></li>
-                            <li><a href="invoices-detail.html">Manage User</a></li>
+                            <li><a href="invoices-detail.html">Manage USer</a></li>
                         </ul>
                     </li>
 
@@ -507,8 +524,8 @@
                         </a>
                         <ul class="sub-menu" aria-expanded="false">
                             <li><a href="projects-grid.html">Manage Company</a></li>
-                            <li><a href="projects-list.html">Manage About Us</a></li>
-                            <li><a href="projects-list.html">Manage Contact Us</a></li>
+                            <li><a href="projects-list.html">Manage About US</a></li>
+                            <li><a href="projects-list.html">Manage Contact</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -720,6 +737,9 @@
 <!-- Datatable init js -->
 <script src="{{asset('/')}}admin/assets/js/pages/datatables.init.js"></script>
 
+<!-- Summernote js -->
+<script src="{{asset('/')}}admin/assets/libs/summernote/summernote-bs4.min.js"></script>
+
 <!-- App js -->
 <script src="{{asset('/')}}admin/assets/js/app.js"></script>
 </body>
@@ -727,4 +747,3 @@
 
 <!-- Mirrored from themesbrand.com/skote/layouts/vertical/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Sep 2020 15:07:20 GMT -->
 </html>
-

@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="col-5 align-self-end">
-                                <img src="{{asset('/')}}admin/assets/images/profile-img.png" alt="" class="img-fluid">
+                                <img src="assets/images/profile-img.png" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                             <a href="index.html">
                                 <div class="avatar-md profile-user-wid mb-4">
                                             <span class="avatar-title rounded-circle bg-light">
-                                                <img src="{{asset('/')}}admin/assets/images/logo.svg" alt="" class="rounded-circle" height="34">
+                                                <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
                                             </span>
                                 </div>
                             </a>
@@ -59,7 +59,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="username">Email</label>
-                                    <input type="email" class="form-control" id="username" placeholder="Enter email" name="email">
+                                    <input type="email" class="form-control" id="username" placeholder="Enter Email" name="email">
                                 </div>
 
                                 <div class="form-group">
@@ -134,4 +134,3 @@
 
 <!-- Mirrored from themesbrand.com/skote/layouts/vertical/auth-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Sep 2020 15:08:04 GMT -->
 </html>
-
